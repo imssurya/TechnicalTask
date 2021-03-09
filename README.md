@@ -1,16 +1,39 @@
 # TechnicalTask
 
-A new Flutter project.
+A Flutter application for Meat Delivery.
 
-## Getting Started
+Basis of Architecture
+This app adopts layered architecture. Each layer has several role.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+   Backend Services (Api, server application, etc...)
+        ↑
+~~~~~~~~↑~~~~~~~~~~~~~~~~~~~~~~ Border of Device ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        ↑
+        ↑ →→→→→→→→→→→→  Storage (File system or on memory)
+        ↑ →→→→→→→→→→→→  Device informations
+        ↑
+        ↑ access
+ +----------------+
+ |   Repository   |   ...  Abstracting the usage of backends
+ +----------------+
+        ↑
+        ↑ depend
+        ↑
+ +----------------+
+ |     Bloc    |   ...  Common procedures manipulationg repositories 
+ +----------------+
+        ↑
+        ↑ depend
+        ↑
+ +----------------+
+ |       UI       |   ...  Presenting states of App and recieving commands from user
+ +----------------+
+        ↑
+        ↑ launch
+        ↑
+       main
+State management
+This app adopts Bloc pattern to manage application/screen states of the app and implement domain logic.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To separate State and Business Logic, we will use State / Event.
