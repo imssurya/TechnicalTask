@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:TechnicalTask/core/error_handling/api_result.dart';
 import 'package:TechnicalTask/core/error_handling/network_exceptions.dart';
 import 'package:TechnicalTask/features/authentication/authentication_bloc.dart';
-import 'package:TechnicalTask/features/login_register/data/model/otpsuccessmodel.dart';
 import 'package:TechnicalTask/features/login_register/data/model/user_model.dart'
     as um;
 import 'package:TechnicalTask/features/login_register/data/repository/user_repository.dart';

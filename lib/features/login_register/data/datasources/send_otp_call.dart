@@ -7,6 +7,7 @@ import 'package:TechnicalTask/features/login_register/data/model/user_login.dart
 
 import 'package:dio/dio.dart';
 
+//calling below api to get otp infoamation for login purposes
 Dio _dio = Dio();
 Future<ApiResult<Token>> getTokenUsingLogin(
     UserLogin userLogin, String url) async {
@@ -21,6 +22,7 @@ Future<ApiResult<Token>> getTokenUsingLogin(
   }
 }
 
+//calling below api to verify otp and get authstring information
 Future<ApiResult<OTPSuccessResponse>> callVerifyOTP(
     OTPPost otpPost, String url) async {
   try {

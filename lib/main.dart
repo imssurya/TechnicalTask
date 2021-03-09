@@ -39,14 +39,11 @@ class App extends StatelessWidget {
           SizeConfig().init(constraints, orientation);
           return MaterialApp(
             theme: ThemeData(
-              //primarySwatch: Colors.red,
               brightness: Brightness.light,
             ),
             home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state) {
-                if (state is AuthenticationUninitialized) {
-                  //return SplashPage();
-                }
+                if (state is AuthenticationUninitialized) {}
                 if (state is AuthenticationAuthenticated) {
                   return Homepage();
                 }
@@ -58,9 +55,6 @@ class App extends StatelessWidget {
                 if (state is AuthenticationLoading) {
                   return LoadingIndicator();
                 }
-                // return LoginPage(
-                //   userRepository: userRepository,
-                // );
               },
             ),
           );

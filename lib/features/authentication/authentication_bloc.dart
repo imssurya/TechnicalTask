@@ -21,10 +21,8 @@ class AuthenticationBloc
     AuthenticationEvent event,
   ) async* {
     if (event is AppStarted) {
-      //commenting this code because of release issue
-      //yield AuthenticationLoading();
       final bool hasToken = await userRepository.hasToken();
-
+      //checking database whether the token exists in table is exist we are allowing user directly to homepage or else loginpage or register page
       if (hasToken) {
         yield AuthenticationAuthenticated();
       } else {
@@ -34,14 +32,14 @@ class AuthenticationBloc
 
     if (event is LoggedIn) {
       yield AuthenticationLoading();
-
+      //when user successfully logged in we are storing the token in user table
       await userRepository.persistToken(user: event.user);
       yield AuthenticationAuthenticated();
     }
 
     if (event is LoggedOut) {
       yield AuthenticationLoading();
-
+      //when user logged out then we are removing particular user in user table so when user comeback again he wont directly go to homepage.
       await userRepository.deleteToken(id: 0);
 
       yield AuthenticationUnauthenticated();

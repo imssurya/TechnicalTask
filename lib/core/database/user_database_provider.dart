@@ -19,6 +19,7 @@ class DatabaseProvider {
     return _database;
   }
 
+  //create local database to store auth information
   createDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, "User.db");
@@ -32,6 +33,7 @@ class DatabaseProvider {
     return database;
   }
 
+//update or create check
   void onUpgrade(
     Database database,
     int oldVersion,
@@ -40,9 +42,10 @@ class DatabaseProvider {
     if (newVersion > oldVersion) {}
   }
 
+//creat table
   void initDB(Database database, int version) async {
     await database.execute("CREATE TABLE $userTable ("
-        "id INTEGER PRIMARY KEY, "
+        "id INTEGER ,"
         "username TEXT, "
         "token TEXT "
         ")");

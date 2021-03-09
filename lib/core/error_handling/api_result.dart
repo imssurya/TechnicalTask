@@ -5,6 +5,7 @@ import 'network_exceptions.dart';
 
 part 'api_result.freezed.dart';
 
+//added this package for error handling
 @freezed
 abstract class ApiResult<T> with _$ApiResult<T> {
   const factory ApiResult.success({@required T data}) = Success<T>;

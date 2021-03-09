@@ -1,6 +1,7 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+//create this util class to handle more screen sizes
 class SizeConfig {
   static double _screenWidth;
   static double _screenHeight;

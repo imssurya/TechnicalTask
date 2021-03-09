@@ -1,3 +1,4 @@
+//auth string model
 class Token {
   String token;
 

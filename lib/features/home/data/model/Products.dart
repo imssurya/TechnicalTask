@@ -35,7 +35,7 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     items = json['items'];
     if (json['products'] != null) {
-      products = new List<Products>();
+      products = <Products>[];
       json['products'].forEach((v) {
         products.add(new Products.fromJson(v));
       });
@@ -103,7 +103,7 @@ class Products {
     deliveryCategory = json['deliveryCategory'];
     unit = json['unit'] != null ? new Unit.fromJson(json['unit']) : null;
     if (json['productVariants'] != null) {
-      productVariants = new List<ProductVariants>();
+      productVariants = <ProductVariants>[];
       json['productVariants'].forEach((v) {
         productVariants.add(new ProductVariants.fromJson(v));
       });
@@ -113,7 +113,7 @@ class Products {
     icon = json['icon'] != null ? new Image.fromJson(json['icon']) : null;
     image = json['image'] != null ? new Image.fromJson(json['image']) : null;
     if (json['availableSlots'] != null) {
-      availableSlots = new List<AvailableSlots>();
+      availableSlots = <AvailableSlots>[];
       json['availableSlots'].forEach((v) {
         availableSlots.add(new AvailableSlots.fromJson(v));
       });

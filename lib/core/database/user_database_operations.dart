@@ -3,7 +3,7 @@ import 'package:TechnicalTask/features/login_register/data/model/user_model.dart
 
 class UserDatabaseOps {
   final dbProvider = DatabaseProvider.dbProvider;
-
+  //inserting into db
   Future<int> createUser(User user) async {
     final db = await dbProvider.database;
 
@@ -11,12 +11,14 @@ class UserDatabaseOps {
     return result;
   }
 
+  //deleting user from db
   Future<int> deleteUser(int id) async {
     final db = await dbProvider.database;
     var result = await db.delete(userTable, where: "id = ?", whereArgs: [id]);
     return result;
   }
 
+  //check whether user exists in db or not
   Future<bool> checkUser(int id) async {
     final db = await dbProvider.database;
     try {
@@ -32,6 +34,7 @@ class UserDatabaseOps {
     }
   }
 
+  //get auth token for particular user
   Future<String> getUserToken(int id) async {
     final db = await dbProvider.database;
     String token = '';
@@ -50,6 +53,7 @@ class UserDatabaseOps {
     return token;
   }
 
+  //get user name for particular user
   Future<String> getUserName(int id) async {
     final db = await dbProvider.database;
     String token = '';
